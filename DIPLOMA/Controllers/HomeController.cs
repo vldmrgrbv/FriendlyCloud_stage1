@@ -5,11 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DIPLOMA.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DIPLOMA.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ViewResult Index() =>
             View(new Dictionary<string, object>
                  { ["Placeholder"] = "Placeholder" });
