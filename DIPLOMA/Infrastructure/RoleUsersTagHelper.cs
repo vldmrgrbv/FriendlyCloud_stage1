@@ -9,7 +9,7 @@ using DIPLOMA.Models;
 
 namespace DIPLOMA.Infrastructure
 {
-    [HtmlTargetElement("id", Attributes = "identity-role"]
+    [HtmlTargetElement("td", Attributes = "identity-role")]
     public class RoleUsersTagHelper : TagHelper
     {
         private UserManager<AppUser> userManager;

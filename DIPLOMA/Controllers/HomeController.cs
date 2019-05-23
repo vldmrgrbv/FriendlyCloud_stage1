@@ -12,9 +12,21 @@ namespace DIPLOMA.Controllers
     public class HomeController : Controller
     {
         [Authorize]
-        public ViewResult Index() =>
-            View(new Dictionary<string, object>
-                 { ["Placeholder"] = "Placeholder" });
+        public IActionResult Index() => View(GetData(nameof(Index)));
+
+        [Authorize(Roles = "Администратор")]
+        public IActionResult OtherAction() => View("Index",
+            GetData(nameof(OtherAction)));
+
+        private Dictionary<string, object> GetData(string actionName) =>
+            new Dictionary<string, object>
+            {
+                ["Пользователь"] = HttpContext.User.Identity.Name,
+                ["Авторизация"] = HttpContext.User.Identity.IsAuthenticated,
+                ["Администратор"] = HttpContext.User.IsInRole("Администратор")
+            };
+
+
         //public IActionResult Index()
         //{
         //    return View();

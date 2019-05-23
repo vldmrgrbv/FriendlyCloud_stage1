@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using DIPLOMA.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DIPLOMA.Controllers
 {
+    [Authorize(Roles = "Admins")]
     public class AdminController : Controller
     {
         private UserManager<AppUser> userManager;

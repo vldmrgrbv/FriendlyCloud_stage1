@@ -68,6 +68,8 @@ namespace DIPLOMA
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+            AppIdentityDbContext.CreateAdminAccount(app.ApplicationServices,
+                Configuration).Wait();
             //    if (env.IsDevelopment())
             //    {
             //        app.UseDeveloperExceptionPage();
