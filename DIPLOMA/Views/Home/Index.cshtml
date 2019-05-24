@@ -1,15 +1,18 @@
 ﻿@model Dictionary<string, object>
+<body class="m-0 p-0">
 
-<div class="bg-primary m-1 p-1 text-white"><h4>Данные пользователей</h4></div>
+    <div class="bg-primary m-0 p-1 text-white"><h4>Данные пользователя</h4></div>
 
-<table class="table table-sm table table-bordered m-1 p-1">
-    @foreach (var kvp in Model)
+    <table class="table table-sm table-bordered mt-2 mb-2 p-1">
+        @foreach (var kvp in Model)
+        {
+            <tr><th>@kvp.Key</th><td>@kvp.Value</td></tr>
+        }
+    </table>
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
     {
-        <tr><th>@kvp.Key</th><td>@kvp.Value</td></tr>
+        <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Выйти</a>
     }
-</table>
 
-@if (User?.Identity?.IsAuthenticated ?? false)
-{
-    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Выйти</a>
-}
+</body>
