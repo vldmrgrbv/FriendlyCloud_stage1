@@ -1,0 +1,51 @@
+﻿@model CreateModelClient
+
+<div class="bg-primary m-1 p-1 text-white"><h4>Создание клиента</h4></div>
+<div asp-validation-summary=" All" class="text-danger"></div>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName">Имя</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SecondName">Фамилия</label>
+        <input asp-for="SecondName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Patronymic">Отчество</label>
+        <input asp-for="Patronymic" class="form-control" />
+    </div>
+    <div class="panel-heading rounded">Паспортные данные</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label asp-for="PassportSerial">Серия</label>
+            <input asp-for="PassportSerial" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="PassportNumber">Номер</label>
+            <input asp-for="PassportNumber" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AddressRegistration">Адрес регистрации</label>
+            <input asp-for="AddressRegistration" class="form-control" />
+        </div>
+    </div>    
+    <div class="form-group">
+        <label asp-for="AddressResidential">Адрес фактического проживания</label>
+        <input asp-for="AddressResidential" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TelephoneNumber">Телефон</label>
+        <input asp-for="TelephoneNumber" class="form-control bfh-phone" data-format="+7 (ddd) ddd-dddd" value="" pattern="(\+[\d\ \(\)\-]{16})"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DataAboutWorkPlace">Данные о месте работы</label>
+        <input asp-for="DataAboutWorkPlace" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+    <a asp-action="" class="btn btn-secondary">Отмена</a>
+</form>
